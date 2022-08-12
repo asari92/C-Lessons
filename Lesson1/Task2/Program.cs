@@ -7,15 +7,9 @@ Console.WriteLine("Введите второе число:");
 int second = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите третье число:");
 int third = int.Parse(Console.ReadLine());
-if (first >= second && first >= third)
+int max = first > second ? first : second;
+if (max < third)
 {
-    Console.WriteLine($"max = {first}");
+    max = third;
 }
-else if (second >= first && second >= third)
-{
-        Console.WriteLine($"max = {second}");
-}
-else 
-{
-    Console.WriteLine($"max = {third}");
-}
+Console.WriteLine($"max = {max}");

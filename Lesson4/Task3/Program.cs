@@ -1,7 +1,7 @@
 ﻿// Задача 3: Напишите программу, которая задаёт массив из 8 элементов, выводит их на экран.
 // И ищет второй максимум (элемент меньше максимального, но больше всех остальных)
 
-int[] array = getRandomArray(8);
+int[] array = GetRandomArray(8);
 ShowArray(array);
 System.Console.WriteLine($"Второй максимальный элемент = {GetSecondMax(array)}");
 
@@ -30,7 +30,7 @@ void ShowArray(int[] array)
     Console.WriteLine("{0}", string.Join(", ", array));
 }
 
-int[] getRandomArray(int arraySize)
+int[] GetRandomArray(int arraySize)
 {
     int[] randomArray = new int[arraySize];
     for (int i = 0; i < arraySize; i++)

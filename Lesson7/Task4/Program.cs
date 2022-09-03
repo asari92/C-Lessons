@@ -8,9 +8,9 @@ int[,] bivariateArray = GetRandomBivariateArray(numberOfRows, numberOfColumns);
 ShowBivariateArray(bivariateArray);
 int rowsSumOfMaxs = GetRowsSumOfMaxs(bivariateArray);
 int columnsSumOfMins = GetColumnsSumOfMins(bivariateArray);
-System.Console.WriteLine($"Сумма максимальных значений строк: {rowsSumOfMaxs}");
-System.Console.WriteLine($"Сумма минимальных значений столбцов: {columnsSumOfMins}");
-System.Console.WriteLine($"Разность сумм: {rowsSumOfMaxs - columnsSumOfMins}");
+Console.WriteLine($"Сумма максимальных значений строк: {rowsSumOfMaxs}");
+Console.WriteLine($"Сумма минимальных значений столбцов: {columnsSumOfMins}");
+Console.WriteLine($"Разность сумм: {rowsSumOfMaxs - columnsSumOfMins}");
 
 int GetArraySum(int[] array)
 {
@@ -22,17 +22,19 @@ int GetArraySum(int[] array)
     return arraySum;
 }
 
-int GetArrayMin(int[] array)
+(int min, int minIdex) GetArrayMinAndIndex(int[] array)
 {
     int min = array[0];
+    int minIdex = 0;
     for (int i = 1; i < array.Length; i++)
     {
         if (array[i] < min)
         {
             min = array[i];
+            minIdex = i;
         }
     }
-    return min;
+    return (min, minIdex);
 }
 
 int GetArrayMax(int[] array)
@@ -77,7 +79,7 @@ int GetColumnsSumOfMins(int[,] bivariateArray)
         {
             column[i] = bivariateArray[i, j];
         }
-        columnsMins[j] = GetArrayMin(column);
+        columnsMins[j] = GetArrayMinAndIndex(column).min;
     }
     return GetArraySum(columnsMins);
 }
